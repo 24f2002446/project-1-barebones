@@ -67,9 +67,9 @@ def round2(data: dict[str, Any]):
 
 def function_response(data: dict[str, Any]):
     match data["round"]:
-        case 1:
+        case "1":
             round1(data)
-        case 2:
+        case "2":
             round2(data)
         case _:
             pass
