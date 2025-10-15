@@ -64,7 +64,6 @@ def push_files(full_name: str, files: list[File]):
             "message": f"Modify {file.path} - Round {round}",
             "content": base64.b64encode(file.content.encode()).decode(),
         }
-        print(response.json())
 
         latest_sha = response.json()["sha"] if response.status_code == 200 else None
 
