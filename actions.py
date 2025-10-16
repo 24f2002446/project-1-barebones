@@ -114,7 +114,7 @@ def send_evaluation_response(evaluation_url: str, response_json: dict[str, str])
     LOCAL_HEADERS = {"Content-Type": "application/json"}
     delay = 1
 
-    for attempt in range(100):
+    for attempt in range(10):
         try:
             resp = requests.post(
                 evaluation_url, json=response_json, headers=LOCAL_HEADERS, timeout=10

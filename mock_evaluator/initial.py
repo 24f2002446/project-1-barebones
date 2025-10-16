@@ -11,12 +11,18 @@ def send_task():
         "nonce": "ab12-3456",
         "brief": "Create a captcha solver that handles ?url=https://.../image.png. Default to attached sample.",
         "checks": [
-            "Repo has MIT license" "README.md is professional",
+            "Repo has MIT license",
+            "README.md is professional",
             "Page displays captcha URL passed at ?url=...",
             "Page displays solved captcha text within 15 seconds",
         ],
         "evaluation_url": "http://localhost:8081/evaluate",
-        "attachments": [{"name": "sample.png", "url": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4TMUAAAAv88F8AH+gNpKt5Lt0RftklEFmsbWhNpLU5jE5ldIrZchLuVXbSFKzb3JHw7QMsZv/+P8/OOhg6JIdew9zoQXmQk8omEidW6j+bWwHB1zV1jZjNNFBBQHmDtyJoYIKIsiggircz/5xR/R/AgL+53/+53/+5/9Ln1Y7vA1tv/2GMKJph/dh2P7If/zHf/zHf29I3fbr23CMZJHs8Dbwv0XGOwxvw7Jun//4j//4j//47wrOO7wP/M///M///M///M///P/bHgA="}],
+        "attachments": [
+            {
+                "name": "sample.png",
+                "url": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4TMUAAAAv88F8AH+gNpKt5Lt0RftklEFmsbWhNpLU5jE5ldIrZchLuVXbSFKzb3JHw7QMsZv/+P8/OOhg6JIdew9zoQXmQk8omEidW6j+bWwHB1zV1jZjNNFBBQHmDtyJoYIKIsiggircz/5xR/R/AgL+53/+53/+5/9Ln1Y7vA1tv/2GMKJph/dh2P7If/zHf/zHf29I3fbr23CMZJHs8Dbwv0XGOwxvw7Jun//4j//4j//47wrOO7wP/M///M///M///M///P/bHgA=",
+            }
+        ],
     }
 
     # PAYLOAD: Final = {  # pyright: ignore[reportUnknownVariableType]
@@ -38,11 +44,11 @@ def send_task():
     #     ],
     # }
 
-    print(
-        requests.post(
-            "http://localhost:8080/handle_task", json=PAYLOAD  # type: ignore
-        ).json()
+    res = requests.post(
+        "https://huggingface.co/spaces/Lofty-Brambles/tds-project-1-deployment/handle_task", json=PAYLOAD  # type: ignore
     )
+
+    print(res.json())
 
 
 if __name__ == "__main__":
