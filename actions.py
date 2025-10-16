@@ -7,7 +7,7 @@ from typing import Final
 from llm import Attachments, File, agent, handle_attachments
 
 HEADERS = {
-    "Authorization": f"Bearer {os.getenv("GITHUB_TOKEN")}",
+    "Authorization": f"Bearer {os.getenv('GITHUB_TOKEN')}",
     "Accept": "application/vnd.github+json",
 }
 
@@ -20,7 +20,7 @@ def write_code(
         {brief}
 
         CHECKS:
-        {"\n".join(list(map(lambda x: f"- {x}", checks)))}
+        {'\n'.join(list(map(lambda x: '- ' + x, checks)))}
 
         REQUIREMENTS:
         1. CRITICAL: The output must contain a README. The README should contain FEATURES, DOCUMENTATION, HOW TO USE and PROJECT STRUCTURE.

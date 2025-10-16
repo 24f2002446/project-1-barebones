@@ -48,16 +48,16 @@ def round2(data: dict[str, Any]):
     files = write_code(
         data["brief"], data.get("checks", []), data.get("attachments", [])
     )
-    push_files(f"24f2002446/{data["task"]}", files)
+    push_files(f"24f2002446/{data['task']}", files)
 
     EVAL_REQUEST: dict[str, str] = {
         "email": data["email"],
         "task": data["task"],
         "round": "2",
         "nonce": data["nonce"],
-        "repo_url": f"https://github.com/24f2002446/{data["task"]}",
-        "commit_sha": get_latest_sha(f"24f2002446/{data["task"]}"),
-        "pages_url": f"https://24f2002446.github.io/{data["task"]}/",
+        "repo_url": f"https://github.com/24f2002446/{data['task']}",
+        "commit_sha": get_latest_sha(f"24f2002446/{data['task']}"),
+        "pages_url": f"https://24f2002446.github.io/{data['task']}/",
     }
 
     print(EVAL_REQUEST)
